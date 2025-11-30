@@ -13,10 +13,13 @@ import RegisterScreen from './screens/RegisterScreen';
 import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
-import UserListScreen from './screens/admin/UserListScreen'; // <--- 1. NEW IMPORT
+import OrderScreen from './screens/OrderScreen'; // <--- Import
+import UserListScreen from './screens/admin/UserListScreen';
+import ProductListScreen from './screens/admin/ProductListScreen';
+import ProductEditScreen from './screens/admin/ProductEditScreen';
+import OrderListScreen from './screens/admin/OrderListScreen';
 import './index.css';
 
-// Define our routes
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
@@ -28,9 +31,13 @@ const router = createBrowserRouter(
       <Route path='/shipping' element={<ShippingScreen />} />
       <Route path='/payment' element={<PaymentScreen />} />
       <Route path='/placeorder' element={<PlaceOrderScreen />} />
+      <Route path='/order/:id' element={<OrderScreen />} /> {/* <--- New Route */}
       
-      {/* 2. ADD THIS NEW ADMIN ROUTE */}
+      {/* Admin Routes */}
       <Route path='/admin/userlist' element={<UserListScreen />} />
+      <Route path='/admin/productlist' element={<ProductListScreen />} />
+      <Route path='/admin/products/:id/edit' element={<ProductEditScreen />} />
+      <Route path='/admin/orderlist' element={<OrderListScreen />} />
     </Route>
   )
 );
